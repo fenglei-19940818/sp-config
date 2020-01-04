@@ -4,10 +4,15 @@ spring:
   cloud:
     config:
       override-none: true
+#  rabbitmq:
+#    host: 192.168.64.140
+#    port: 5672
+#    username: admin
+#    password: admin
 
 server:
   port: 3001
-
+  
 eureka:
   client:
     service-url:
@@ -15,14 +20,13 @@ eureka:
 
 zuul:
   retryable: true
-  sensitive-headers:
-
+    
 ribbon:
   ConnectTimeout: 1000
-  ReadTimeout: 2000
+  ReadTimeout: 1000
   MaxAutoRetriesNextServer: 1
   MaxAutoRetries: 1
-
+  
 hystrix:
   command:
     default:
@@ -30,7 +34,7 @@ hystrix:
         isolation:
           thread:
             timeoutInMilliseconds: 500
-
+            
 management:
   endpoints:
     web:
